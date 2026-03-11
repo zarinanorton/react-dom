@@ -1,9 +1,23 @@
 .nav {
     display: grid;
+    grid-template-columns: 1fr 320px;
+}
+
+.nav > .search-group {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.nav > .search-group > *:first-child {
+    border-radius: 0.5em 0 0 0.5em;
+}
+
+.nav > .search-group > *:last-child {
+    border-radius: 0 0.5em 0.5em 0;
 }
 
 .nav > ul {
-    display: block;
+    display: inline;
 }
 
 .nav > ul > li {

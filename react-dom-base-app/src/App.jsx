@@ -1,27 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useTransition } from 'react'
 import NavBar from './nav/NavBar';
 import Card from './card/Card';
+import Loader from './loader/Loader';
 import './App.css'
 
+const canonicalItems = [{name: "Old Nails", description: "Old Nails for Sale"},
+    {name: "Old Tiles", description: "Old Tiles for Sale"},
+    {name: "Old Car", description: "Old Car for Sale"}]
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [isPending, startTransition] = useTransition(false);
 
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(canonicalItems);
+  const [search, setSearch] = useState('');
 
-  const getItems = () => {
-      setItems([{
-            name: "Old Nails",
-            description: "Old Nails for Sale"
-          }])
+  function getItems() {
+      startTransition(() => {
+          setItems(filterItems(search));
+                });
+   }
+
+   function filterItems(search) {
+       if (!search) {
+           return items;
+       } else {
+           return items.filter(item.name.includes(search) || item.description.includes(search));
+       }
    }
 
   return (
     <>
-        <NavBar />
-        <button onClick={getItems}>Get Items</button>
-        <div>{items.map(item => (<Card item={item} />))}</div>
+        <div className="sidebar"><NavBar searchState={[search, setSearch]}/></div>
+        <div className="main">
+            <Loader isVisible={isPending}/>
+            <button onClick={getItems}>Get Items</button>
+            <div>{items.map(item => (<Card item={item} />))}</div>
+        </div>
     </>
   )
 }

@@ -1,0 +1,9 @@
+.card {
+    border-radius: 0.5em;
+    border: 1px solid lightgray;
+}
+
+.card > .header {
+    border-bottom: 1px solid lightgray;
+    padding: 0.25em 0.5em;
+}

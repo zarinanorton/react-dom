@@ -1,11 +1,22 @@
 import { useState } from 'react'
 import './NavBar.css';
 
-function NavBar() {
-  const [count, setCount] = useState(0)
+function NavBar({searchState}) {
+    console.log(searchState);
+    const [searchStr, setSearchStr] = searchState;
+
+    const search = () => {
+        setSearchStr(document.getElementById('search').value);
+    }
 
   return (
-      <div className="nav"><ul><li>Home</li><li></li></ul><input type="search" /><button className="">Search</button></div>
+      <div className="nav">
+          <ul><li key="home">Home</li><li key=""></li></ul>
+          <div className="search-group">
+              <input type="text" id="search"/>
+              <button className="" onClick={search}>Search</button>
+          </div>
+      </div>
   )
 }
 

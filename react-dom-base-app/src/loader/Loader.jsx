@@ -1,7 +1,7 @@
 import './Loader.css';
 
 function Loader({isVisible}) {
-    return (<div className="loader" data-isVisible={isVisible}></div>);
+    return (<div className="loader" data-isvisible={isVisible}></div>);
 }
 
 export default Loader;

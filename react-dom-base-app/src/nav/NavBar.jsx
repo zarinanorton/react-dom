@@ -2,16 +2,16 @@ import { useState } from 'react'
 import './NavBar.css';
 
 function NavBar({searchState}) {
-    console.log(searchState);
-    const [searchStr, setSearchStr] = searchState;
+    const [getItems, switchState] = searchState;
 
     const search = () => {
-        setSearchStr(document.getElementById('search').value);
+        const searchStr = document.getElementById('search').value;
+        getItems(searchStr);
     }
 
   return (
       <div className="nav">
-          <ul><li key="home">Home</li><li key=""></li></ul>
+          <ul><li key="home" onClick={() => switchState('Create__Listing')}>Create Listing</li></ul>
           <div className="search-group">
               <input type="text" id="search"/>
               <button className="" onClick={search}>Search</button>

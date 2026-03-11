@@ -1,0 +1,33 @@
+.modal-background {
+    background-color: rgba(0,0,0,0.3);
+    z-index:1;
+    width:100%;
+    height:100%;
+    position: absolute;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.modal {
+    border-radius: 0.5em;
+    border: 1px solid lightgray;
+    background-color: white;
+    min-width: max(320px, 33%);
+}
+
+.modal > .header {
+    padding: 0.5em;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal > .body {
+    padding: 0.5em;
+}
+
+.modal > .footer {
+    padding: 0.5em;
+    border-top: 1px solid lightgray;
+}

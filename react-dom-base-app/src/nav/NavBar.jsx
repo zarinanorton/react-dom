@@ -11,6 +11,7 @@ function NavBar({searchState}) {
 
   return (
       <div className="nav">
+          <h2>Builder Grade.</h2>
           <ul><li key="home" onClick={() => switchState('Create__Listing')}>Create Listing</li></ul>
           <div className="search-group">
               <input type="text" id="search"/>

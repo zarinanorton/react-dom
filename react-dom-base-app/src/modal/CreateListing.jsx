@@ -1,7 +1,8 @@
 import './CreateListing.css';
+import { CanonicalStates } from '../constants/States.js';
 
 function CreateListing({state}) {
-    const [isVisible, switchState] = state;
+    const [isCreateListingVisible, setCreateListingVisibility] = state;
 
     function closeModal() {
     }
@@ -9,11 +10,11 @@ function CreateListing({state}) {
     function save() {
     }
 
-    return (<div className="modal-background" data-isvisible={isVisible}>
+    return (<div className="modal-background" data-isvisible={isCreateListingVisible}>
         <div className="modal">
             <div className="header">Create a Listing <span onClick={closeModal}>X</span></div>
             <div className="body">
-                <form onSubmit={save}>
+                <form className="form" onSubmit={save}>
                 <div class="form-group"><label for="price">Price:&nbsp;</label><input id="price" name="price" type="number" /></div>
                 <div class="form-group"><label for="title">Title:&nbsp;</label><input id="title" name="title" type="text" /></div>
                 <div class="form-group"><label for="description">Description:&nbsp;</label><input id="description" name="description" type="text" /></div>

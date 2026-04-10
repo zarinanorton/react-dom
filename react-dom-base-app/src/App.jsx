@@ -3,23 +3,20 @@ import NavBar from './nav/NavBar';
 import Card from './card/Card';
 import Loader from './loader/Loader';
 import CreateListing from './modal/CreateListing';
+import {CanonicalStates} from './constants/States.js';
 import './App.css'
 
 const canonicalItems = [{name: "Old Nails", description: "Old Nails for Sale"},
     {name: "Old Tiles", description: "Old Tiles for Sale"},
     {name: "Old Car", description: "Old Car for Sale"}]
 
-const canonicalStates = {
-    'Create__Listing' : 1
-    };
-
 function App() {
   const [isPending, startTransition] = useTransition(false);
-  const [state, setState] = useState(0);
+  const [isCreateListingVisible, setCreateListingVisibility] = useState(false);
   const [items, setItems] = useState(canonicalItems);
 
   function switchState(state) {
-      setState(canonicalStates[state]);
+      setState(CanonicalStates[state]);
   }
 
   function getItems(search) {
@@ -44,7 +41,7 @@ function App() {
             <Loader isVisible={isPending}/>
             <div className="card-container">{items.map(item => (<Card item={item} />))}</div>
         </div>
-        <CreateListing state={[state, switchState]}/>
+        <CreateListing state={[isCreateListingVisible, setCreateListingVisibility]}/>
     </>
   )
 }

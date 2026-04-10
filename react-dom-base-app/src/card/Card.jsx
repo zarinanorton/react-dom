@@ -2,8 +2,13 @@ import { useState } from 'react';
 import './Card.css';
 
 function Card({ item }) {
+
+    const expand = () => {
+
+    }
+
     return (
-        <div className="card">
+        <div className="card" onClick={expand}>
             <div className="header">{item.name}</div>
             <div className="body">{item.description}</div>
             <div className="footer"><button></button></div>

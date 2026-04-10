@@ -2,7 +2,8 @@ import { useState, useTransition } from 'react'
 import NavBar from './nav/NavBar';
 import Card from './card/Card';
 import Loader from './loader/Loader';
-import CreateListing from './modal/CreateListing';
+import CreateListing from './create-listing/CreateListing';
+import SeeMoreModal from './see-more/SeeMoreModal';
 import {CanonicalStates} from './constants/States.js';
 import './App.css'
 
@@ -13,6 +14,8 @@ const canonicalItems = [{name: "Old Nails", description: "Old Nails for Sale"},
 function App() {
   const [isPending, startTransition] = useTransition(false);
   const [isCreateListingVisible, setCreateListingVisibility] = useState(false);
+  const [isSeeMoreModalVisible, setSeeMoreModalVisibility] = useState(false);
+
   const [items, setItems] = useState(canonicalItems);
 
   function switchState(state) {
@@ -44,6 +47,7 @@ function App() {
             <div className="card-container">{items.map(item => (<Card item={item} />))}</div>
         </div>
         <CreateListing state={[isCreateListingVisible, setCreateListingVisibility]}/>
+        <SeeMoreModal state={[isSeeMoreModalVisible, setSeeMoreModalVisibility]}/>
     </>
   )
 }

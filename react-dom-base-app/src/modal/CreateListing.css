@@ -9,6 +9,10 @@
     justify-content: center;
 }
 
+.modal-background[data-isVisible=true] {
+    display: flex !important;
+}
+
 .modal {
     border-radius: 0.5em;
     border: 1px solid lightgray;

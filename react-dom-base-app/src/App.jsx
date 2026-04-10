@@ -16,7 +16,9 @@ function App() {
   const [items, setItems] = useState(canonicalItems);
 
   function switchState(state) {
-      setState(CanonicalStates[state]);
+      if (state == 'Create__Listing') {
+          setCreateListingVisibility(true);
+      }
   }
 
   function getItems(search) {

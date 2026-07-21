@@ -1,7 +1,8 @@
 import './SeeMoreModal.css';
 
 function SeeMoreModal({state}) {
-    const [isSeeMoreModalVisible, setSeeMoreModalVisibility] = state;
+    // seeMoreOfItem type is {title: string, description: string, price: double}
+    const [seeMoreOfItem, isSeeMoreModalVisible, setSeeMoreModalVisibility] = state;
 
     function closeModal() {
         setSeeMoreModalVisibility(false);
@@ -13,9 +14,11 @@ function SeeMoreModal({state}) {
 
     return (<div className="modal-background" data-isvisible={isSeeMoreModalVisible}>
         <div className="modal">
-            <div className="header">Create a Listing <span onClick={closeModal}>X</span></div>
+            <div className="header">See More Modal <span onClick={closeModal}>X</span></div>
             <div className="body">
-
+                <p>{seeMoreOfItem.title}</p>
+                <p>{seeMoreOfItem.description}</p>
+                <p>{seeMoreOfItem.price}</p>
             </div>
             <div className="footer">
                 <button onClick={closeModal}>Close</button>

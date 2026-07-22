@@ -53,7 +53,7 @@ function App() {
 
   return (
     <>
-        <div className="sidebar"><NavBar searchState={[getItems, switchState]}/></div>
+        <div className="sidebar"><NavBar searchState={[dispatch]}/></div>
         <div className="main">
             <Loader isVisible={isPending}/>
             <div className="card-container">{items.map(item => (<Card
